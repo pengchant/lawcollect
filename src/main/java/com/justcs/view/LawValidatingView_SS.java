@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class LawValidatingView_SS implements Serializable {
 
-    private String attribute;
+    private String[] attribute;
 
     private String inputer;
 
@@ -12,18 +12,18 @@ public class LawValidatingView_SS implements Serializable {
 
     private String lawname;
 
-    public LawValidatingView_SS(String attribute, String inputer, String checker, String lawname) {
+    public LawValidatingView_SS(String[] attribute, String inputer, String checker, String lawname) {
         this.attribute = attribute;
         this.inputer = inputer;
         this.checker = checker;
         this.lawname = lawname;
     }
 
-    public String getAttribute() {
+    public String[] getAttribute() {
         return attribute;
     }
 
-    public void setAttribute(String attribute) {
+    public void setAttribute(String[] attribute) {
         this.attribute = attribute;
     }
 

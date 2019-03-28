@@ -3,6 +3,7 @@ package com.justcs.dao;
 import com.justcs.entity.Securitylaw;
 import com.justcs.entity.SecuritylawWithBLOBs;
 import com.justcs.view.LawValidatingView;
+import com.justcs.view.SearchLawView;
 import com.sun.tracing.dtrace.ProviderAttributes;
 import org.apache.ibatis.annotations.Param;
 
@@ -60,16 +61,16 @@ public interface SecuritylawMapper {
      * @param inputer
      * @param checker
      * @param lawname
-     * @param attribute
+     * @param attributes
      * @return
      */
-    List<LawValidatingView> selectValidated(
+    List<SearchLawView> selectValidated(
             @Param("sortby") String sortby,
             @Param("order") String order,
             @Param("inputer") String inputer,
             @Param("checker") String checker,
             @Param("lawname") String lawname,
-            @Param("attribute") String attribute
+            @Param("attributes") String[] attributes
     );
 
 

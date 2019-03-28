@@ -375,7 +375,9 @@ public class LawController {
      * @return
      */
     @RequestMapping("/searchlaw")
-    public String searchlaw() {
+    public String searchlaw(Model model) {
+        // 查询所有的法律属性
+        model.addAttribute("lawattribute", lawService.getLawAttributeNodes());
         return "/teacher/searchlaw";
     }
 
@@ -526,7 +528,7 @@ public class LawController {
                 searchObj = gson.fromJson(search, LawValidatingView_SS.class);
             } catch (JsonSyntaxException e) {
                 searchObj = new LawValidatingView_SS(
-                        "",
+                        null,
                         "",
                         "",
                         ""
@@ -534,13 +536,13 @@ public class LawController {
             }
         } else {
             searchObj = new LawValidatingView_SS(
-                    "",
+                    null,
                     "",
                     "",
                     ""
             );
         }
-        PageInfo<LawValidatingView> lawValidatingViewPageInfo =
+        PageInfo<SearchLawView> lawValidatingViewPageInfo =
                 lawService.queryValidatedLaw(
                         page,
                         recPerPage,

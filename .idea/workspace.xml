@@ -7,30 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7483eb24-86fc-4ce6-8b9b-183bcb455cb2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/justcs/view/SearchLawView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/justcs/dao/SecuritylawMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/justcs/dao/SecuritylawMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/justcs/service/ILawService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/justcs/service/ILawService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/justcs/service/impl/LawService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/justcs/service/impl/LawService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView_SS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView_SS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/SecuritylawMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/SecuritylawMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/personalwork.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/personalwork.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/personalwork_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/personalwork_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/checkstu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/checkstu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/passlaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/passlaw.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/passlaw_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/passlaw_detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/searchlaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/searchlaw.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/justcs/controller/LawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/justcs/controller/LawController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/justcs/dao/SecuritylawMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/justcs/dao/SecuritylawMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/justcs/service/ILawService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/justcs/service/ILawService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/justcs/service/impl/LawService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/justcs/service/impl/LawService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/justcs/view/LawValidatingView_SS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/justcs/view/LawValidatingView_SS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/SecuritylawMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapping/SecuritylawMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/controller/LawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/controller/LawController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/addlaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/addlaw.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/addlaw_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/addlaw_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/checklaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/checklaw.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/dao/SecuritylawMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/dao/SecuritylawMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/service/ILawService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/service/ILawService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/service/impl/LawService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/service/impl/LawService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/view/LawValidatingView_SS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/com/justcs/view/LawValidatingView_SS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/mapping/SecuritylawMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/classes/mapping/SecuritylawMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/checklaw_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/checklaw_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/personalwork.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/personalwork.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/personalwork_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/student/personalwork_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/checkstu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/checkstu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/passlaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/passlaw.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/passlaw_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/passlaw_detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/searchlaw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/lawcollect/WEB-INF/views/teacher/searchlaw.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -76,14 +75,14 @@
         <counts>
           <entry key="class" value="17" />
           <entry key="css" value="10" />
-          <entry key="java" value="455" />
+          <entry key="java" value="465" />
           <entry key="js" value="15" />
-          <entry key="jsp" value="255" />
+          <entry key="jsp" value="262" />
           <entry key="png" value="4" />
           <entry key="properties" value="11" />
           <entry key="rnc" value="5" />
           <entry key="txt" value="1" />
-          <entry key="xml" value="135" />
+          <entry key="xml" value="137" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -91,84 +90,127 @@
           <entry key="CLASS" value="17" />
           <entry key="CSS" value="10" />
           <entry key="Image" value="4" />
-          <entry key="JAVA" value="455" />
-          <entry key="JSP" value="255" />
+          <entry key="JAVA" value="465" />
+          <entry key="JSP" value="262" />
           <entry key="JavaScript" value="15" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="11" />
           <entry key="RNG Compact" value="5" />
-          <entry key="XML" value="135" />
+          <entry key="XML" value="137" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="37319" />
-          <entry key="jsp" value="27128" />
+          <entry key="java" value="37648" />
+          <entry key="jsp" value="27272" />
           <entry key="properties" value="67" />
-          <entry key="xml" value="4265" />
+          <entry key="xml" value="4393" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="7" />
-          <entry key="JAVA" value="37319" />
-          <entry key="JSP" value="27121" />
+          <entry key="JAVA" value="37648" />
+          <entry key="JSP" value="27265" />
           <entry key="Properties" value="67" />
-          <entry key="SQL" value="188" />
-          <entry key="XML" value="4077" />
+          <entry key="SQL" value="208" />
+          <entry key="XML" value="4185" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="438" column="43" lean-forward="true" selection-start-line="438" selection-start-column="43" selection-end-line="438" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#deleteLaw#0;class#LawController#0" />
-                <element signature="method#batchdeleteLaw#0;class#LawController#0" />
-                <element signature="method#startValidate#0;class#LawController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/passlaw.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2707">
-              <caret line="248" column="27" lean-forward="true" selection-start-line="248" selection-start-column="27" selection-end-line="248" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/searchlaw.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="219" column="27" lean-forward="true" selection-start-line="219" selection-start-column="27" selection-end-line="219" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="200" column="11" lean-forward="true" selection-start-line="200" selection-start-column="11" selection-end-line="200" selection-end-column="11" />
-              <folding>
-                <element signature="e#105#111#0" expanded="true" />
-                <element signature="e#111#117#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.38399354">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/SecuritylawMapper.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="172">
+                  <caret line="320" column="64" selection-start-line="320" selection-start-column="64" selection-end-line="320" selection-end-column="64" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/view/SearchLawView.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+                  <folding>
+                    <element signature="e#308#309#0" expanded="true" />
+                    <element signature="e#333#334#0" expanded="true" />
+                    <element signature="e#369#370#0" expanded="true" />
+                    <element signature="e#397#398#0" expanded="true" />
+                    <element signature="e#431#432#0" expanded="true" />
+                    <element signature="e#461#462#0" expanded="true" />
+                    <element signature="e#507#508#0" expanded="true" />
+                    <element signature="e#545#546#0" expanded="true" />
+                    <element signature="e#579#580#0" expanded="true" />
+                    <element signature="e#609#610#0" expanded="true" />
+                    <element signature="e#655#656#0" expanded="true" />
+                    <element signature="e#693#694#0" expanded="true" />
+                    <element signature="e#733#734#0" expanded="true" />
+                    <element signature="e#769#770#0" expanded="true" />
+                    <element signature="e#827#828#0" expanded="true" />
+                    <element signature="e#877#878#0" expanded="true" />
+                    <element signature="e#911#912#0" expanded="true" />
+                    <element signature="e#941#942#0" expanded="true" />
+                    <element signature="e#987#988#0" expanded="true" />
+                    <element signature="e#1025#1026#0" expanded="true" />
+                    <element signature="e#1059#1060#0" expanded="true" />
+                    <element signature="e#1089#1090#0" expanded="true" />
+                    <element signature="e#1135#1136#0" expanded="true" />
+                    <element signature="e#1173#1174#0" expanded="true" />
+                    <element signature="e#1210#1211#0" expanded="true" />
+                    <element signature="e#1243#1244#0" expanded="true" />
+                    <element signature="e#1295#1296#0" expanded="true" />
+                    <element signature="e#1339#1340#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="544" selection-start-line="544" selection-end-line="544" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#deleteLaw#0;class#LawController#0" />
+                    <element signature="method#batchdeleteLaw#0;class#LawController#0" />
+                    <element signature="method#startValidate#0;class#LawController#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView_SS.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/searchlaw.jsp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="258">
+                  <caret line="234" column="40" lean-forward="true" selection-start-line="234" selection-start-column="40" selection-end-line="234" selection-end-column="40" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -181,8 +223,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>select</find>
-      <find>reqadmin</find>
       <find>登录</find>
       <find>surlogin</find>
       <find>!=null</find>
@@ -201,7 +241,6 @@
       <find>selectContainsAccount</find>
       <find>valiLawsEntrys</find>
       <find>selectValidating</find>
-      <find>selectValidated</find>
       <find>queryLawvalidating</find>
       <find>stuaddetail</find>
       <find>meditselect</find>
@@ -211,6 +250,9 @@
       <find>search</find>
       <find>entergrade</find>
       <find>passlaw</find>
+      <find>stusurecheck</find>
+      <find>selectValidated</find>
+      <find>searchlaw</find>
     </findStrings>
     <replaceStrings>
       <replace>ResponseJSONResult</replace>
@@ -231,7 +273,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/justcs/form/CheckLawSubForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/form/LawSubmitForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/form/LoginForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/form/ModifyUserPassForm.java" />
@@ -259,28 +300,29 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/leftmenu.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/justcs/dao/SecuritylawMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapping/SecuritylawMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView_SS.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/dao/lawattrlevelMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/justcs/service/ILawService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/view/LawAttributeNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/justcs/service/impl/LawService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/dao/LawattrlevelMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/LawattrlevelMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw_detail.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw_detail.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/personalwork_detail.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/passlaw_detail.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/justcs/utils/JsonResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/passlaw.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/personalwork.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/checkstu.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw_detail.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/justcs/view/SearchLawView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/justcs/dao/SecuritylawMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/justcs/service/ILawService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/justcs/service/impl/LawService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView_SS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/SecuritylawMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/searchlaw.jsp" />
       </list>
     </option>
@@ -334,12 +376,14 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="847" />
-    <option name="y" value="103" />
+    <option name="x" value="769" />
+    <option name="y" value="67" />
     <option name="width" value="1632" />
     <option name="height" value="1032" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -387,25 +431,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="justcs" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lawcollect" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lawcollect" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="justcs" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lawcollect" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lawcollect" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="justcs" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lawcollect" type="b2602c69:ProjectViewProjectNode" />
@@ -419,6 +445,14 @@
               <item name="lawcollect" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapping" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lawcollect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lawcollect" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -437,16 +471,6 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lawcollect" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lawcollect" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="student" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lawcollect" type="b2602c69:ProjectViewProjectNode" />
@@ -468,7 +492,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553765741467" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553775818506" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -773,12 +797,12 @@
       <workItem from="1553602170974" duration="6842000" />
       <workItem from="1553611918721" duration="2199000" />
       <workItem from="1553674943666" duration="7841000" />
-      <workItem from="1553747515368" duration="15612000" />
+      <workItem from="1553747515368" duration="22683000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297186000" />
+    <option name="totallyTimeSpent" value="304257000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -793,7 +817,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23039612" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24090542" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -804,14 +828,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.66289407" side_tool="true" weight="0.6571936" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.3371059" weight="0.33985764" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.3371059" weight="0.5320285" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Spring" order="6" weight="0.3285968" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3285968" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3268206" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.502021" side_tool="true" weight="0.43694493" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4995958" weight="0.47602132" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4995958" weight="0.47508895" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3285968" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" weight="0.16192171" />
@@ -829,6 +853,43 @@
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32983023" />
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32983023" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24090542" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.66289407" side_tool="true" weight="0.6571936" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.3371059" weight="0.33985764" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Spring" order="6" weight="0.3285968" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3285968" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3268206" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.502021" side_tool="true" weight="0.43694493" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4995958" weight="0.47508895" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3285968" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" weight="0.16192171" />
+      <window_info anchor="bottom" id="REST Client" order="14" weight="0.54174066" />
+      <window_info anchor="bottom" id="Application Servers" order="15" weight="0.3285968" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.2497979" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.21988682" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32983023" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32983023" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32983023" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -836,18 +897,23 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java</url>
+          <line>544</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/regist.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -928,13 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/dao/SecuritylawMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="65" column="44" lean-forward="true" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/utils/WebJSONResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-641">
@@ -949,13 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView_SS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/entity/Lawattrlevel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -967,6 +1019,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="1234" column="5" lean-forward="true" selection-start-line="1234" selection-start-column="5" selection-end-line="1234" selection-end-column="5" />
+          <folding>
+            <element signature="e#47036#47037#0" expanded="true" />
+            <element signature="e#47092#47093#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -977,30 +1033,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/service/impl/LawService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="611" column="75" selection-start-line="611" selection-start-column="56" selection-end-line="611" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#queryLawDetail#0;class#LawService#0" />
-            <element signature="method#queryStuValiInfoView#0;class#LawService#0" />
-            <element signature="docComment;method#workloadRecordsPageInfo#0;class#LawService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/BodyofentryMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="119" column="9" lean-forward="true" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/SecuritylawMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="320" column="43" selection-start-line="320" selection-start-column="33" selection-end-line="320" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1046,13 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/service/ILawService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/utils/RandomCodeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
@@ -1071,20 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="355" selection-start-column="355" selection-end-column="355" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw_detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="13" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw_detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1192,19 +1207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="438" column="43" lean-forward="true" selection-start-line="438" selection-start-column="43" selection-end-line="438" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#deleteLaw#0;class#LawController#0" />
-            <element signature="method#batchdeleteLaw#0;class#LawController#0" />
-            <element signature="method#startValidate#0;class#LawController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/personalinfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2182">
@@ -1246,21 +1248,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/searchlaw.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="219" column="27" lean-forward="true" selection-start-line="219" selection-start-column="27" selection-end-line="219" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="200" column="11" lean-forward="true" selection-start-line="200" selection-start-column="11" selection-end-line="200" selection-end-column="11" />
+        <state relative-caret-position="202">
+          <caret line="232" column="43" lean-forward="true" selection-start-line="232" selection-start-column="43" selection-end-line="232" selection-end-column="43" />
           <folding>
             <element signature="e#105#111#0" expanded="true" />
             <element signature="e#111#117#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/addlaw_detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="314" column="11" lean-forward="true" selection-start-line="314" selection-start-column="11" selection-end-line="314" selection-end-column="11" />
+          <folding>
+            <element signature="e#1481#1487#0#HTML" expanded="true" />
+            <element signature="e#1707#1713#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/checklaw_detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="244" column="39" lean-forward="true" selection-start-line="244" selection-start-column="39" selection-end-line="244" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/dao/SecuritylawMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/SecuritylawMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="320" column="64" selection-start-line="320" selection-start-column="64" selection-end-line="320" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/service/ILawService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="183" column="7" lean-forward="true" selection-start-line="183" selection-start-column="7" selection-end-line="183" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/service/impl/LawService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="488" column="11" selection-start-line="488" selection-start-column="11" selection-end-line="488" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#queryLawDetail#0;class#LawService#0" />
+            <element signature="method#queryStuValiInfoView#0;class#LawService#0" />
+            <element signature="docComment;method#workloadRecordsPageInfo#0;class#LawService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/view/SearchLawView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#333#334#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#1025#1026#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1089#1090#0" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/view/LawValidatingView_SS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/justcs/controller/LawController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="544" selection-start-line="544" selection-end-line="544" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#deleteLaw#0;class#LawController#0" />
+            <element signature="method#batchdeleteLaw#0;class#LawController#0" />
+            <element signature="method#startValidate#0;class#LawController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/searchlaw.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="234" column="40" lean-forward="true" selection-start-line="234" selection-start-column="40" selection-end-line="234" selection-end-column="40" />
         </state>
       </provider>
     </entry>

@@ -473,7 +473,7 @@ public class LawService implements ILawService {
 
 
     /**
-     * 检索数据
+     * 检索法律条文
      *
      * @param page
      * @param recPerPage
@@ -482,21 +482,13 @@ public class LawService implements ILawService {
      * @param inputer
      * @param checker
      * @param lawname
-     * @param attribute
+     * @param attributes
      * @return
      */
     @Override
-    public PageInfo<LawValidatingView> queryValidatedLaw(
-            int page,
-            int recPerPage,
-            String sortby,
-            String order,
-            String inputer,
-            String checker,
-            String lawname,
-            String attribute) {
+    public PageInfo<SearchLawView> queryValidatedLaw(int page, int recPerPage, String sortby, String order, String inputer, String checker, String lawname, String[] attributes) {
         PageHelper.startPage(page, recPerPage);
-        PageInfo<LawValidatingView> lawValidatingViewPageInfo =
+        PageInfo<SearchLawView> lawValidatingViewPageInfo =
                 new PageInfo<>(
                         securitylawMapper.selectValidated(
                                 sortby,
@@ -504,7 +496,7 @@ public class LawService implements ILawService {
                                 inputer,
                                 checker,
                                 lawname,
-                                attribute
+                                attributes
                         )
                 );
         return lawValidatingViewPageInfo;
@@ -628,7 +620,7 @@ public class LawService implements ILawService {
                     // 遍历顶层然后添加到父节点中
                     for (LawAttributeNode e : results) {
                         if (parentid == e.getId()) {
-                            if(e.getChildren()==null){
+                            if (e.getChildren() == null) {
                                 e.setChildren(new ArrayList<LawAttributeNode>());
                             }
                             LawAttributeNode _second = new LawAttributeNode();

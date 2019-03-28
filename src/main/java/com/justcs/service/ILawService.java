@@ -179,10 +179,10 @@ public interface ILawService {
      * @param inputer
      * @param checker
      * @param lawname
-     * @param attribute
+     * @param attributes
      * @return
      */
-    PageInfo<LawValidatingView> queryValidatedLaw(
+    PageInfo<SearchLawView> queryValidatedLaw(
             int page,
             int recPerPage,
             String sortby,
@@ -190,7 +190,7 @@ public interface ILawService {
             String inputer,
             String checker,
             String lawname,
-            String attribute
+            String[] attributes
     );
 
 

@@ -56,10 +56,46 @@
                                id="version" name="version" placeholder="输入版本">
                     </div>
                 </div>
+                <%--<div class="form-group">--%>
+                <%--<label for="firstreleasedep" class="col-sm-2">第一发布部门</label>--%>
+                <%--<div class="col-sm-3">--%>
+                <%--<select class="form-control meditselect" id="firstreleasedep" name="firstreleasedep">--%>
+                <%--&lt;%&ndash; 动态加载部门 &ndash;%&gt;--%>
+                <%--<c:forEach varStatus="status" items="${releasedeps}" var="dep" step="1">--%>
+                <%--<c:choose>--%>
+                <%--<c:when test="${lawsadded.firstreleasedep==dep.id}">--%>
+                <%--<option selected="true" value="${dep.depname}">${dep.depname}</option>--%>
+                <%--</c:when>--%>
+                <%--<c:otherwise>--%>
+                <%--<option value="${dep.depname}">${dep.depname}</option>--%>
+                <%--</c:otherwise>--%>
+                <%--</c:choose>--%>
+                <%--</c:forEach>--%>
+                <%--</select>--%>
+                <%--</div>--%>
+                <%--<label for="copubdep" class="col-sm-2">共同发布部门</label>--%>
+                <%--<div class="col-sm-3">--%>
+                <%--<select class="form-control meditselect" id="copubdep" name="copubdep">--%>
+                <%--&lt;%&ndash; 动态加载部门 &ndash;%&gt;--%>
+                <%--<c:forEach varStatus="status" items="${releasedeps}" var="dep" step="1">--%>
+                <%--<c:choose>--%>
+                <%--<c:when test="${lawsadded.copubdep==dep.id}">--%>
+                <%--<option selected="true" value="${dep.depname}">${dep.depname}</option>--%>
+                <%--</c:when>--%>
+                <%--<c:otherwise>--%>
+                <%--<option value="${dep.depname}">${dep.depname}</option>--%>
+                <%--</c:otherwise>--%>
+                <%--</c:choose>--%>
+                <%--</c:forEach>--%>
+                <%--</select>--%>
+                <%--</div>--%>
+                <%--</div>--%>
                 <div class="form-group">
                     <label for="firstreleasedep" class="col-sm-2">第一发布部门</label>
-                    <div class="col-sm-3">
-                        <select class="form-control meditselect" id="firstreleasedep" name="firstreleasedep">
+                    <div class="col-sm-10 col-md-6">
+                        <select class="form-control"
+                                placeholder="请选择/输入第一发布部门"
+                                id="firstreleasedep" name="firstreleasedep">
                             <%-- 动态加载部门 --%>
                             <c:forEach varStatus="status" items="${releasedeps}" var="dep" step="1">
                                 <c:choose>
@@ -73,9 +109,13 @@
                             </c:forEach>
                         </select>
                     </div>
+                </div>
+                <div class="form-group">
                     <label for="copubdep" class="col-sm-2">共同发布部门</label>
-                    <div class="col-sm-3">
-                        <select class="form-control meditselect" id="copubdep" name="copubdep">
+                    <div class="col-sm-10 col-md-6">
+                        <select class="form-control"
+                                placeholder="请选择/输入共同发布部门"
+                                id="copubdep" name="copubdep">
                             <%-- 动态加载部门 --%>
                             <c:forEach varStatus="status" items="${releasedeps}" var="dep" step="1">
                                 <c:choose>
@@ -146,10 +186,10 @@
                             </c:forEach>
                         </select>
                         <%--<textarea class="form-control" id="lawattributes" name="lawattributes" rows="6"--%>
-                                  <%--placeholder="输入属性,例如:--%>
-                                  <%--1...--%>
-                                  <%--2...--%>
-                                  <%--3...">${lawsadded.lawattributes}</textarea>--%>
+                        <%--placeholder="输入属性,例如:--%>
+                        <%--1...--%>
+                        <%--2...--%>
+                        <%--3...">${lawsadded.lawattributes}</textarea>--%>
                     </div>
                 </div>
 
@@ -250,6 +290,13 @@
             //可选参数default、fade
             filter: false,
             duration: 200,
+            onSelect: function (e, li) {
+                //由于input为hidden，验证会出现一些bug，此处手动验证隐藏的input组件
+                $('#valilawfm')
+                    .data('bootstrapValidator')
+                    .updateStatus('firstreleasedep', 'NOT_VALIDATED')
+                    .validateField('firstreleasedep');
+            }
         });
 
         $("#copubdep").editableSelect({
@@ -257,6 +304,13 @@
             //可选参数default、fade
             filter: false,
             duration: 200,
+            onSelect: function (e, li) {
+                //由于input为hidden，验证会出现一些bug，此处手动验证隐藏的input组件
+                $('#valilawfm')
+                    .data('bootstrapValidator')
+                    .updateStatus('copubdep', 'NOT_VALIDATED')
+                    .validateField('copubdep');
+            }
         });
 
         /**

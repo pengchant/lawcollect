@@ -276,9 +276,9 @@
         (case when s.checkedtime is not null then date_format(s.checkedtime,'%Y-%m-%d %H:%i:%S')
         else "暂无" end) as checkedtime,
         (case when s.lawstatus='2' then '待审核'
-              when s.lawstatus='3' then '审核通过'
-              when s.lawstatus='-1' then '审核不通过'
-              else "未知" end) as lawstatus,
+        when s.lawstatus='3' then '审核通过'
+        when s.lawstatus='-1' then '审核不通过'
+        else "未知" end) as lawstatus,
         iw.grade as entergrade,
         cw.grade as checkergrade
         from securitylaw s
@@ -289,7 +289,7 @@
         where 1=1
         <!-- 法律条文的状态 -->
         <if test="lawstatus!=null and lawstatus!=''">
-           and  s.lawstatus = #{lawstatus}
+            and s.lawstatus = #{lawstatus}
         </if>
         <!-- 按照关键字查询 -->
         <if test="search!=null and search!=''">
@@ -318,37 +318,28 @@
 
 
     <!-- 检索 -->
-    <select id="selectValidated" resultType="com.justcs.view.LawValidatingView">
-        select
-        s.id as lawid,
-        s.lawname as lawname,
-        s.version as version,
-        s.enterid as enterid,
-        s.lawattributes as lawattributes,
-        st1.stuname as entername,
-        (case when s.entertime is not null then date_format(s.entertime,'%Y-%m-%d %H:%i:%S')
-        else "暂无" end) as entertime,
-        s.checkerid as checkerid,
-        st2.stuname as checkername,
-        (case when s.checkedtime is not null then date_format(s.checkedtime,'%Y-%m-%d %H:%i:%S')
-        else "暂无" end) as checkedtime,
-        (case when s.lawstatus='2' then '待审核'
-        when s.lawstatus='3' then '审核通过'
-        when s.lawstatus='-1' then '审核不通过'
-        else "未知" end) as lawstatus,
-        iw.grade as entergrade,
-        cw.grade as checkergrade
-        from securitylaw s
+    <select id="selectValidated" resultType="com.justcs.view.SearchLawView">
+        SELECT
+        s.id AS id,
+        s.lawname AS lawname,
+        s.version AS version,
+        s.lawattributes AS lawattributes,
+        st1.stuname as inputer,
+        st2.stuname as checker,
+        s.reviewtime as reviewtime
+        FROM
+        securitylaw s
         left join student st1 on(s.enterid=st1.accountid)
         left join student st2 on(s.checkerid=st2.accountid)
-        LEFT JOIN workloadrecord iw ON ( s.enterid = iw.accountid and s.id = iw.lawid)
-        LEFT JOIN workloadrecord cw ON ( s.checkerid = cw.accountid and s.id = cw.lawid)
-        where 1=1
-        and  s.lawstatus = '3'
+        WHERE 1 = 1
+        AND s.lawstatus = '3'
 
         <!-- 属性 -->
-        <if test="attribute!=null and attribute!=''">
-            and s.lawattributes like CONCAT(CONCAT('%', #{attribute}), '%')
+        <if test="attributes!=null">
+            and
+            <foreach collection="attributes" item="attr" open="(" close=")" separator="or">
+                find_in_set('${attr}', s.lawattributes)
+            </foreach>
         </if>
 
         <!-- 录入人 -->

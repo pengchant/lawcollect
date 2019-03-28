@@ -19,13 +19,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-1">
-                        <label for="lawattribute">法律属性</label>
-                    </div>
-                    <div class="col-md-3">
-                        <input id="lawattribute" type="search" class="form-control"
-                               placeholder="请输入待搜索法律属性"/>
-                    </div>
-                    <div class="col-md-1">
                         <label for="inputer">录入人</label>
                     </div>
                     <div class="col-md-3">
@@ -41,10 +34,6 @@
                                placeholder="请输入校验人"/>
                     </div>
 
-                </div>
-
-                <div class="row" style="margin-top:20px;">
-
                     <div class="col-md-1">
                         <label for="msearch">关键字</label>
                     </div>
@@ -52,9 +41,32 @@
                         <input id="msearch" type="search" class="form-control"
                                placeholder="请输入待搜索的法律名称"/>
                     </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4">
-                        <button class="btn btn-warning pull-right" id="search_result" type="button"><i
+
+                </div>
+
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-1">
+                        <label for="lawattribute">法律属性</label>
+                    </div>
+                    <div class="col-md-7">
+                        <%--<input id="lawattribute" type="search" class="form-control"--%>
+                        <%--placeholder="请输入待搜索法律属性"/>--%>
+                        <select data-placeholder="选择法律属性"
+                                id="lawattribute"
+                                name="lawattribute"
+                                class="chosen-select form-control" multiple="">
+                            <%-- 遍历列表数据 --%>
+                            <c:forEach var="item" items="${lawattribute}">
+                                <optgroup label="${item.currentName}">
+                                    <c:forEach var="element" items="${item.children}">
+                                        <option value="${element.currentName}">${element.currentName}</option>
+                                    </c:forEach>
+                                </optgroup>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button class="btn btn-warning" id="search_result" type="button"><i
                                 class="icon icon-search"></i>搜索
                         </button>
                     </div>
@@ -73,6 +85,8 @@
 
 
 <%@include file="../common/func_common/func_footer_foot.jsp" %>
+<link rel="stylesheet" href="../../../ZUI/lib/chosen/chosen.min.css"/>
+<script src="../../../ZUI/lib/chosen/chosen.min.js" type="text/javascript"></script>
 <script src="../../../ZUI/lib/datagrid/zui.datagrid.min.js"></script>
 <link rel="stylesheet" href="../../../ZUI/lib/datetimepicker/datetimepicker.min.css"/>
 <script src="../../../ZUI/lib/datetimepicker/datetimepicker.min.js" type="text/javascript"></script>
@@ -92,6 +106,13 @@
 
     $(function () {
 
+        $('select.chosen-select').chosen({
+            no_results_text: '没有找到',    // 当检索时没有找到匹配项时显示的提示文本
+            disable_search_threshold: 10, // 10 个以下的选择项则不显示检索框
+            search_contains: true         // 从任意位置开始检索
+        });
+
+
         var datagridflag = true;
         $("#myDataGrid").datagrid({
             dataSource: {
@@ -101,66 +122,42 @@
                         label: '法律名称',
                         className: 'text-center',
                         sort: true,
-                        width: 0.1
+                        width: 0.2
                     },
                     {
                         name: 'version',
                         label: '版本',
                         className: 'text-center',
                         sort: true,
-                        width: 0.05
+                        width: 0.08
                     },
                     {
-                        name: 'entername',
+                        name: 'lawattributes',
+                        label: '法律属性',
+                        className: 'text-center',
+                        sort: true,
+                        width: 0.3
+                    },
+                    {
+                        name: 'inputer',
                         label: "录入人",
                         className: 'text-center',
                         sort: true,
-                        width: 0.05
+                        width: 0.08
                     },
                     {
-                        name: "entergrade",
-                        label: '得分',
-                        html: true,
-                        width: 0.05,
-                        className: 'text-center',
-                        valueOperator: {
-                            getter: function (dataValue, cell, dataGrid) {
-                                var grade = cell.config.data.entergrade;
-                                if (grade == undefined) {
-                                    return "<span class='text-danger'>暂无</span>";
-                                }
-                                return "<span class='text-danger'>" + grade + "</span>"
-                            }
-                        }
-                    },
-                    {
-                        name: 'checkername',
+                        name: 'checker',
                         label: "校验人",
-                        width: 0.05,
+                        width: 0.08,
                         className: 'text-center',
                         sort: true,
                     },
                     {
-                        name: "checkergrade",
-                        label: '得分',
-                        html: true,
-                        width: 0.05,
+                        name: 'reviewtime',
+                        label: "审核时间",
+                        width: 0.15,
                         className: 'text-center',
-                        valueOperator: {
-                            getter: function (dataValue, cell, dataGrid) {
-                                var grade = cell.config.data.checkergrade;
-                                if (grade == undefined) {
-                                    return "<span class='text-danger'>暂无</span>";
-                                }
-                                return "<span class='text-danger'>" + grade + "</span>"
-                            }
-                        }
-                    },
-                    {
-                        name: "lawstatus",
-                        label: '法律状态',
-                        width: 0.05,
-                        className: 'text-center',
+                        sort: true,
                     },
                     {
                         label: '操作',
@@ -212,7 +209,6 @@
                 fixedLeftUntil: 0,    // 固定左侧第一列
                 fixedRightFrom: 12,   // 从第12列开始固定到右侧
                 fixedTopUntil: 0,     // 固定顶部第一行（标题行）
-                fixedBottomFrom: 100, // 从第100行（在此例中是最后一行）开始固定到底部
             },
             showRowIndex: true,
             onRender: function () { // 渲染事件
@@ -226,29 +222,6 @@
         // 获取数据表格实例
         var myDataGrid = $('#myDataGrid').data('zui.datagrid');
 
-        $('#myDataGrid').on('onLoad', function (event, result) {
-            console.log(result);
-            if (result === false) {
-                console.log('数据加载失败。');
-                // myDataGrid.setDataSource({
-                //     "result": "error",
-                //     "data": [],
-                //     "message": "暂无数据",
-                //     "pager": {
-                //         "page": 1,           // 当前数据对应的页码
-                //         "recTotal": 0,    // 总的数据数目
-                //         "recPerPage": 10,    // 每页数据数目
-                //     }
-                // });
-            }
-        });
-
-        $('#myDataGrid').on('onRender', function(event) {
-            // 表格已重新渲染
-            console.log("-render");
-
-        });
-
         // 模糊查询
         $("#search_result").click(function () {
             var lawattribute = $("#lawattribute").val();
@@ -256,7 +229,7 @@
             var checker = $("#checker").val();
             var msearch = $("#msearch").val();
             var searchObj = {};
-            searchObj.attribute = lawattribute;
+            searchObj.attribute = lawattribute // 属性数组
             searchObj.inputer = inputer;
             searchObj.checker = checker;
             searchObj.lawname = msearch;
