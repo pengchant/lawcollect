@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.justcs.dao.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.justcs.entity.Student">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="stuid" jdbcType="CHAR" javaType="java.lang.String"/>
+            <arg column="stuname" jdbcType="CHAR" javaType="java.lang.String"/>
+            <arg column="classno" jdbcType="CHAR" javaType="java.lang.String"/>
+            <arg column="tips" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="accountid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, stuid, stuname, classno, tips, accountid
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from student
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from student
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.justcs.entity.Student" useGeneratedKeys="true" keyProperty="id">
+    insert into student (id, stuid, stuname, 
+      classno, tips, accountid
+      )
+    values (#{id,jdbcType=INTEGER}, #{stuid,jdbcType=CHAR}, #{stuname,jdbcType=CHAR}, 
+      #{classno,jdbcType=CHAR}, #{tips,jdbcType=VARCHAR}, #{accountid,jdbcType=INTEGER}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.justcs.entity.Student" useGeneratedKeys="true" keyProperty="id">
+        insert into student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="stuid != null">
+                stuid,
+            </if>
+            <if test="stuname != null">
+                stuname,
+            </if>
+            <if test="classno != null">
+                classno,
+            </if>
+            <if test="tips != null">
+                tips,
+            </if>
+            <if test="accountid != null">
+                accountid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="stuid != null">
+                #{stuid,jdbcType=CHAR},
+            </if>
+            <if test="stuname != null">
+                #{stuname,jdbcType=CHAR},
+            </if>
+            <if test="classno != null">
+                #{classno,jdbcType=CHAR},
+            </if>
+            <if test="tips != null">
+                #{tips,jdbcType=VARCHAR},
+            </if>
+            <if test="accountid != null">
+                #{accountid,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.justcs.entity.Student">
+        update student
+        <set>
+            <if test="stuid != null">
+                stuid = #{stuid,jdbcType=CHAR},
+            </if>
+            <if test="stuname != null">
+                stuname = #{stuname,jdbcType=CHAR},
+            </if>
+            <if test="classno != null">
+                classno = #{classno,jdbcType=CHAR},
+            </if>
+            <if test="tips != null">
+                tips = #{tips,jdbcType=VARCHAR},
+            </if>
+            <if test="accountid != null">
+                accountid = #{accountid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.justcs.entity.Student">
+    update student
+    set stuid = #{stuid,jdbcType=CHAR},
+      stuname = #{stuname,jdbcType=CHAR},
+      classno = #{classno,jdbcType=CHAR},
+      tips = #{tips,jdbcType=VARCHAR},
+      accountid = #{accountid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <!-- 根据账号查询学生信息 -->
+    <select id="selectByAccountId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from student
+        where accountid=#{accountid}
+    </select>
+
+</mapper>

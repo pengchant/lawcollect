@@ -1,0 +1,31 @@
+安装三个tomcat： 
+https://blog.csdn.net/qq_23832313/article/details/83584564#3_tomcat_24
+配置tomcat发布不带项目名称：
+https://blog.51cto.com/1197822/2156618
+nginx的配置：
+https://blog.csdn.net/weixin_33446857/article/details/80918723
+redis的配置：
+https://blog.csdn.net/qq_35992900/article/details/82950157
+https://blog.csdn.net/mrqiang9001/article/details/80212884
+
+centos防火墙与端口配置
+https://my.oschina.net/RanboSpider/blog/1924262
+vim多行注释
+https://www.cnblogs.com/wenxingxu/p/9528161.html
+
+mysql允许root远程登录
+https://www.cnblogs.com/davidgu/p/3706663.html
+
+
+ <Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve"/>
+<Manager 
+         className="com.orangefunction.tomcat.redissessions.RedisSessionManager"
+         host="127.0.0.1"
+         port="6379" 
+         database="0"
+         password="xiaopeng"
+         maxInactiveInterval="60"/>
+
+
+ openssl x509 -in www.x.com.crt -out www.x.com.pem
+

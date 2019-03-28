@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.justcs.dao.BodyofentryMapper">
+    <resultMap id="BaseResultMap" type="com.justcs.entity.Bodyofentry">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="number" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.justcs.entity.Bodyofentry">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="number" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawcontent" jdbcType="LONGVARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, lawid, number
+  </sql>
+    <sql id="Blob_Column_List">
+    lawcontent
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from bodyofentry
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bodyofentry
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.justcs.entity.Bodyofentry">
+    insert into bodyofentry (id, lawid, number, 
+      lawcontent)
+    values (#{id,jdbcType=INTEGER}, #{lawid,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, 
+      #{lawcontent,jdbcType=LONGVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.justcs.entity.Bodyofentry">
+        insert into bodyofentry
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="lawid != null">
+                lawid,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="lawcontent != null">
+                lawcontent,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="lawid != null">
+                #{lawid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="lawcontent != null">
+                #{lawcontent,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.justcs.entity.Bodyofentry">
+        update bodyofentry
+        <set>
+            <if test="lawid != null">
+                lawid = #{lawid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="lawcontent != null">
+                lawcontent = #{lawcontent,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.justcs.entity.Bodyofentry">
+    update bodyofentry
+    set lawid = #{lawid,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      lawcontent = #{lawcontent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.justcs.entity.Bodyofentry">
+    update bodyofentry
+    set lawid = #{lawid,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+    <!-- 批量录入数据 -->
+    <insert id="batchInsertLawEntity" parameterType="com.justcs.entity.Bodyofentry">
+        insert into bodyofentry (
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (null,#{item.lawid},#{item.number},#{item.lawcontent})
+        </foreach>
+    </insert>
+
+    <!-- 通过法律条文查询校验通过的所有法律条文 -->
+    <select id="selectLawItems" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from bodyofentry
+        where lawid=#{lawid}
+        order by number asc
+    </select>
+
+</mapper>

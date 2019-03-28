@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.justcs.dao.LawentitytempMapper">
+    <resultMap id="BaseResultMap" type="com.justcs.entity.Lawentitytemp">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="number" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="accountid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="inputtime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </constructor>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.justcs.entity.Lawentitytemp">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="number" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="accountid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="inputtime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="lawcontent" jdbcType="LONGVARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, lawid, number, accountid, inputtime
+  </sql>
+    <sql id="Blob_Column_List">
+    lawcontent
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from lawentitytemp
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from lawentitytemp
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.justcs.entity.Lawentitytemp">
+    insert into lawentitytemp (id, lawid, number, 
+      accountid, inputtime, lawcontent
+      )
+    values (#{id,jdbcType=INTEGER}, #{lawid,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, 
+      #{accountid,jdbcType=INTEGER}, #{inputtime,jdbcType=TIMESTAMP}, #{lawcontent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.justcs.entity.Lawentitytemp">
+        insert into lawentitytemp
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="lawid != null">
+                lawid,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="accountid != null">
+                accountid,
+            </if>
+            <if test="inputtime != null">
+                inputtime,
+            </if>
+            <if test="lawcontent != null">
+                lawcontent,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="lawid != null">
+                #{lawid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="accountid != null">
+                #{accountid,jdbcType=INTEGER},
+            </if>
+            <if test="inputtime != null">
+                #{inputtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lawcontent != null">
+                #{lawcontent,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.justcs.entity.Lawentitytemp">
+        update lawentitytemp
+        <set>
+            <if test="lawid != null">
+                lawid = #{lawid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="accountid != null">
+                accountid = #{accountid,jdbcType=INTEGER},
+            </if>
+            <if test="inputtime != null">
+                inputtime = #{inputtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lawcontent != null">
+                lawcontent = #{lawcontent,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.justcs.entity.Lawentitytemp">
+    update lawentitytemp
+    set lawid = #{lawid,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      accountid = #{accountid,jdbcType=INTEGER},
+      inputtime = #{inputtime,jdbcType=TIMESTAMP},
+      lawcontent = #{lawcontent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.justcs.entity.Lawentitytemp">
+    update lawentitytemp
+    set lawid = #{lawid,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      accountid = #{accountid,jdbcType=INTEGER},
+      inputtime = #{inputtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <!-- 根据法律的id查询暂存法律正文的内容 -->
+    <select id="selectByLawId" parameterType="String" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from lawentitytemp
+        where lawid=#{lawid}
+    </select>
+
+
+    <!-- 按照条件查询已经录入的法律条文 -->
+    <select id="selectInputingLaw" resultType="com.justcs.view.InputLawView">
+        select
+        s.id as lawid,
+        s.lawname as lawname,
+        s.version as version,
+        s.firstreldepid as firstreldepid,
+        d.depname as firstdepname,
+        s.copubdepid as copubdepid,
+        dt.depname as copdepname,
+        s.enterid as enterid,
+        s.entertime as entertime,
+        s.lawstatus as lawstatus
+        from securitylaw s
+        left join lawentitytemp t on(s.id = t.lawid)
+        left join releasedep d on(s.firstreldepid = d.id)
+        left join releasedep dt on(s.copubdepid = dt.id)
+        where 1=1
+        <!-- 录入人员编号 -->
+        <if test="enterid !=null and enterid!=''">
+            and s.enterid=#{enterid}
+        </if>
+        <!-- 法律条文状态 -->
+        <if test="lawstatus!=null and lawstatus!=''">
+            and s.lawstatus=#{lawstatus}
+        </if>
+        <!-- 模糊匹配lawname -->
+        <if test="lawname !=null and lawname!=''">
+            and s.lawname like CONCAT(CONCAT('%', #{lawname}), '%')
+        </if>
+        <!-- 按照某个字段排序 -->
+        <if test="sortby!=null and sortby!='' and order!=null and order!=''">
+            order by ${sortby} ${order}
+        </if>
+
+    </select>
+
+
+    <!-- 批量删除法律条文(前提是输入状态，非输入状态则不能删除) -->
+    <delete id="batchDelLaws">
+        delete from lawentitytemp
+        where lawid in
+        <foreach collection="array" item="lawid" separator="," open="(" close=")">
+            #{lawid}
+        </foreach>
+        ;
+        delete from securitylaw
+        where id in
+        <foreach collection="array" item="lawid" separator="," open="(" close=")">
+            #{lawid}
+        </foreach>
+    </delete>
+
+
+    <!-- 查询待校验的法律 -->
+    <select id="selectValidatingLaw" resultType="com.justcs.view.ValidateLawView">
+        select
+        l.id as lawid,
+        l.lawname as lawname,
+        l.version as version,
+        l.firstreldepid as firstreldepid,
+        d1.depname as firstreldep,
+        l.copubdepid as copubdepid,
+        d2.depname as copubdep,
+        a.id as enterid,
+        s.stuname as entername,
+        l.entertime as entertime,
+        l.lawstatus as lawstatus
+        from securitylaw l
+        left join account a on (l.enterid=a.id)
+        left join student s on (a.id=s.accountid)
+        left join releasedep d1 on (l.firstreldepid=d1.id)
+        left join releasedep d2 on (l.copubdepid=d2.id)
+        where 1=1
+        <!-- 查询当前正在输入的/或者本人正在修改的,其他人修改的则不能修改 -->
+        <if test="enterid!='' and enterid!=null">
+            and enterid!=#{enterid}
+            and (lawstatus='1'
+            or
+            (lawstatus='99' and checkerid=#{enterid}))
+        </if>
+        <!-- 模糊匹配lawname -->
+        <if test="lawname !=null and lawname!=''">
+            and l.lawname like CONCAT(CONCAT('%', #{lawname}), '%')
+        </if>
+        <!-- 按照某个字段排序 -->
+        <if test="sortby!=null and sortby!='' and order!=null and order!=''">
+            order by ${sortby} ${order}
+        </if>
+    </select>
+</mapper>

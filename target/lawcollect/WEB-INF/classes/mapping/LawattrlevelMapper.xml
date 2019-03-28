@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.justcs.dao.LawattrlevelMapper">
+    <resultMap id="BaseResultMap" type="com.justcs.entity.Lawattrlevel">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="level_name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="level" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="parent_node" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, level_name, level, parent_node
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from lawattrlevel
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from lawattrlevel
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.justcs.entity.Lawattrlevel">
+    insert into lawattrlevel (id, level_name, level, 
+      parent_node)
+    values (#{id,jdbcType=INTEGER}, #{levelName,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
+      #{parentNode,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.justcs.entity.Lawattrlevel">
+        insert into lawattrlevel
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="levelName != null">
+                level_name,
+            </if>
+            <if test="level != null">
+                level,
+            </if>
+            <if test="parentNode != null">
+                parent_node,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="levelName != null">
+                #{levelName,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                #{level,jdbcType=INTEGER},
+            </if>
+            <if test="parentNode != null">
+                #{parentNode,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.justcs.entity.Lawattrlevel">
+        update lawattrlevel
+        <set>
+            <if test="levelName != null">
+                level_name = #{levelName,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                level = #{level,jdbcType=INTEGER},
+            </if>
+            <if test="parentNode != null">
+                parent_node = #{parentNode,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.justcs.entity.Lawattrlevel">
+    update lawattrlevel
+    set level_name = #{levelName,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      parent_node = #{parentNode,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+    <select id="selectAllAttributes" resultType="com.justcs.entity.Lawattrlevel">
+        select
+        <include refid="Base_Column_List"/>
+        from lawattrlevel
+    </select>
+</mapper>

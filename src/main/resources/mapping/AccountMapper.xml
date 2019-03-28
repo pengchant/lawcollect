@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.justcs.dao.AccountMapper">
+    <resultMap id="BaseResultMap" type="com.justcs.entity.Account">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="account" jdbcType="CHAR" javaType="java.lang.String"/>
+            <arg column="pwd" jdbcType="CHAR" javaType="java.lang.String"/>
+            <arg column="type" jdbcType="SMALLINT" javaType="java.lang.Short"/>
+            <arg column="sts" jdbcType="SMALLINT" javaType="java.lang.Short"/>
+            <arg column="registtime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, account, pwd, type, sts, registtime
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from account
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from account
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.justcs.entity.Account" useGeneratedKeys="true" keyProperty="id">
+    insert into account (id, account, pwd, type, 
+      sts, registtime)
+    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=CHAR}, #{pwd,jdbcType=CHAR}, #{type,jdbcType=SMALLINT}, 
+      #{sts,jdbcType=SMALLINT}, #{registtime,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="com.justcs.entity.Account" useGeneratedKeys="true" keyProperty="id">
+        insert into account
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="account != null">
+                account,
+            </if>
+            <if test="pwd != null">
+                pwd,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="sts != null">
+                sts,
+            </if>
+            <if test="registtime != null">
+                registtime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="account != null">
+                #{account,jdbcType=CHAR},
+            </if>
+            <if test="pwd != null">
+                #{pwd,jdbcType=CHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="sts != null">
+                #{sts,jdbcType=SMALLINT},
+            </if>
+            <if test="registtime != null">
+                #{registtime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.justcs.entity.Account">
+        update account
+        <set>
+            <if test="account != null">
+                account = #{account,jdbcType=CHAR},
+            </if>
+            <if test="pwd != null">
+                pwd = #{pwd,jdbcType=CHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="sts != null">
+                sts = #{sts,jdbcType=SMALLINT},
+            </if>
+            <if test="registtime != null">
+                registtime = #{registtime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.justcs.entity.Account">
+    update account
+    set account = #{account,jdbcType=CHAR},
+      pwd = #{pwd,jdbcType=CHAR},
+      type = #{type,jdbcType=SMALLINT},
+      sts = #{sts,jdbcType=SMALLINT},
+      registtime = #{registtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectAllAccount" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from account
+        <if test="search!=null and search!=''">
+            where account LIKE CONCAT(CONCAT('%', #{search}), '%')
+        </if>
+        <if test="sortby!=null and sortby!='' and order!=null and order!=''">
+            order by ${sortby} ${order}
+        </if>
+    </select>
+
+    <!-- 查询是否存在某账号 -->
+    <select id="selectContainsAccount" resultType="Account" parameterType="String">
+        select
+        <include refid="Base_Column_List"/>
+        from account
+        where account=#{account}
+    </select>
+
+    <!-- 按照条件查询学生信息 -->
+    <select id="selectStudentsInfo" resultType="com.justcs.view.StuValiInfoView">
+        select
+
+        a.id as accountid,
+        s.id as stuid,
+        a.account as account,
+        a.sts as sts,
+        a.registtime as registtime,
+        s.stuname as stuname,
+        s.classno as classno,
+        s.tips as tips
+
+        from account a
+        left join student s on(a.id = s.accountid)
+
+        where a.type='0'
+
+        <!-- 开始时间和结束时间 -->
+        <!-- 1.从开始时间往后 -->
+        <if test="starttime!=null and starttime!='' and (endtime==null or endtime=='')">
+            and a.registtime &gt;= concat(#{starttime}, ' 00:00:00')
+        </if>
+        <!-- 2.从结束时间往前 -->
+        <if test="starttime==null and starttime=='' and (endtime!=null or endtime!='')">
+            and a.registtime &lt;= concat(#{endtime}, ' 23:59:59')
+        </if>
+        <!-- 3.从开始时间到结束时间 -->
+        <if test="starttime!=null and starttime!='' and endtime !=null and endtime!=''">
+            and a.registtime between concat(#{starttime},' 00:00:00')
+            and
+            concat(#{endtime},' 23:59:59')
+        </if>
+
+        <!-- 账户的状态 -->
+        <if test="status!=null and status!=''">
+            and a.sts=#{status}
+        </if>
+
+        <!-- 学生姓名模糊匹配 -->
+        <if test="stuname!=null and stuname!=''">
+            and s.stuname like CONCAT(CONCAT('%', #{stuname}), '%')
+        </if>
+
+        <!-- 按照某个字段排序 -->
+        <if test="sortby!=null and sortby!='' and order!=null and order!=''">
+            order by ${sortby} ${order}
+        </if>
+    </select>
+
+
+    <!-- 批量更新账户信息 -->
+    <update id="batupdsts">
+        update account
+        set sts = #{stusts}
+        where id in
+        <foreach collection="array" item="accountid" separator="," open="(" close=")">
+            #{accountid}
+        </foreach>
+    </update>
+
+    <!-- 批量删除账户信息/连同注册的学生信息一起删除 -->
+    <delete id="batdelstsandaccount">
+        delete from student
+        where accountid in
+        <foreach collection="array" item="accountid" separator="," open="(" close=")">
+            #{accountid}
+        </foreach>
+        ;
+        delete from account
+        where id in
+        <foreach collection="array" item="accountid" separator="," open="(" close=")">
+            #{accountid}
+        </foreach>
+    </delete>
+
+
+    <!-- 查询用户的信息 -->
+    <select id="selectRegistStuInfo" parameterType="String" resultType="com.justcs.view.StuInfoView">
+        select
+            a.id as accountid,
+            s.id as stuid,
+            a.account as account,
+            s.stuid as stunum,
+            s.stuname as stuname,
+            s.classno as classno,
+            s.tips as tips
+        from account a
+            left join student s on(a.id = s.accountid)
+        where a.id = #{accountid}
+    </select>
+
+
+    <!-- 查询所有管理员信息 -->
+    <select id="selectAllAdmins" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from account
+        where type="1"
+    </select>
+
+</mapper>

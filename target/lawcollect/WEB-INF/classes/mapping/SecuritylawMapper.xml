@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.justcs.dao.SecuritylawMapper">
+    <resultMap id="BaseResultMap" type="com.justcs.entity.Securitylaw">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawname" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="version" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="firstreldepid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="copubdepid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="enterid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="entertime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="checkerid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="checkedtime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="lawstatus" jdbcType="SMALLINT" javaType="java.lang.Short"/>
+            <arg column="reviewerid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="reviewtime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </constructor>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.justcs.entity.SecuritylawWithBLOBs">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawname" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="version" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="firstreldepid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="copubdepid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="enterid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="entertime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="checkerid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="checkedtime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="lawstatus" jdbcType="SMALLINT" javaType="java.lang.Short"/>
+            <arg column="reviewerid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="reviewtime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="keyterms" jdbcType="LONGVARCHAR" javaType="java.lang.String"/>
+            <arg column="lawattributes" jdbcType="LONGVARCHAR" javaType="java.lang.String"/>
+            <arg column="upperregulations" jdbcType="LONGVARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, lawname, version, firstreldepid, copubdepid, enterid, entertime, checkerid, checkedtime, 
+    lawstatus, reviewerid, reviewtime
+  </sql>
+    <sql id="Blob_Column_List">
+    keyterms, lawattributes, upperregulations
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from securitylaw
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from securitylaw
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.justcs.entity.SecuritylawWithBLOBs" useGeneratedKeys="true" keyProperty="id">
+    insert into securitylaw (id, lawname, version, 
+      firstreldepid, copubdepid, enterid, 
+      entertime, checkerid, checkedtime, 
+      lawstatus, reviewerid, reviewtime, 
+      keyterms, lawattributes, upperregulations
+      )
+    values (#{id,jdbcType=INTEGER}, #{lawname,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{firstreldepid,jdbcType=INTEGER}, #{copubdepid,jdbcType=INTEGER}, #{enterid,jdbcType=INTEGER}, 
+      #{entertime,jdbcType=TIMESTAMP}, #{checkerid,jdbcType=INTEGER}, #{checkedtime,jdbcType=TIMESTAMP}, 
+      #{lawstatus,jdbcType=SMALLINT}, #{reviewerid,jdbcType=INTEGER}, #{reviewtime,jdbcType=TIMESTAMP}, 
+      #{keyterms,jdbcType=LONGVARCHAR}, #{lawattributes,jdbcType=LONGVARCHAR}, #{upperregulations,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.justcs.entity.SecuritylawWithBLOBs" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into securitylaw
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="lawname != null">
+                lawname,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="firstreldepid != null">
+                firstreldepid,
+            </if>
+            <if test="copubdepid != null">
+                copubdepid,
+            </if>
+            <if test="enterid != null">
+                enterid,
+            </if>
+            <if test="entertime != null">
+                entertime,
+            </if>
+            <if test="checkerid != null">
+                checkerid,
+            </if>
+            <if test="checkedtime != null">
+                checkedtime,
+            </if>
+            <if test="lawstatus != null">
+                lawstatus,
+            </if>
+            <if test="reviewerid != null">
+                reviewerid,
+            </if>
+            <if test="reviewtime != null">
+                reviewtime,
+            </if>
+            <if test="keyterms != null">
+                keyterms,
+            </if>
+            <if test="lawattributes != null">
+                lawattributes,
+            </if>
+            <if test="upperregulations != null">
+                upperregulations,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="lawname != null">
+                #{lawname,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=VARCHAR},
+            </if>
+            <if test="firstreldepid != null">
+                #{firstreldepid,jdbcType=INTEGER},
+            </if>
+            <if test="copubdepid != null">
+                #{copubdepid,jdbcType=INTEGER},
+            </if>
+            <if test="enterid != null">
+                #{enterid,jdbcType=INTEGER},
+            </if>
+            <if test="entertime != null">
+                #{entertime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="checkerid != null">
+                #{checkerid,jdbcType=INTEGER},
+            </if>
+            <if test="checkedtime != null">
+                #{checkedtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lawstatus != null">
+                #{lawstatus,jdbcType=SMALLINT},
+            </if>
+            <if test="reviewerid != null">
+                #{reviewerid,jdbcType=INTEGER},
+            </if>
+            <if test="reviewtime != null">
+                #{reviewtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="keyterms != null">
+                #{keyterms,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="lawattributes != null">
+                #{lawattributes,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="upperregulations != null">
+                #{upperregulations,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.justcs.entity.SecuritylawWithBLOBs">
+        update securitylaw
+        <set>
+            <if test="lawname != null">
+                lawname = #{lawname,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=VARCHAR},
+            </if>
+            <if test="firstreldepid != null">
+                firstreldepid = #{firstreldepid,jdbcType=INTEGER},
+            </if>
+            <if test="copubdepid != null">
+                copubdepid = #{copubdepid,jdbcType=INTEGER},
+            </if>
+            <if test="enterid != null">
+                enterid = #{enterid,jdbcType=INTEGER},
+            </if>
+            <if test="entertime != null">
+                entertime = #{entertime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="checkerid != null">
+                checkerid = #{checkerid,jdbcType=INTEGER},
+            </if>
+            <if test="checkedtime != null">
+                checkedtime = #{checkedtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lawstatus != null">
+                lawstatus = #{lawstatus,jdbcType=SMALLINT},
+            </if>
+            <if test="reviewerid != null">
+                reviewerid = #{reviewerid,jdbcType=INTEGER},
+            </if>
+            <if test="reviewtime != null">
+                reviewtime = #{reviewtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="keyterms != null">
+                keyterms = #{keyterms,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="lawattributes != null">
+                lawattributes = #{lawattributes,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="upperregulations != null">
+                upperregulations = #{upperregulations,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.justcs.entity.SecuritylawWithBLOBs">
+    update securitylaw
+    set lawname = #{lawname,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      firstreldepid = #{firstreldepid,jdbcType=INTEGER},
+      copubdepid = #{copubdepid,jdbcType=INTEGER},
+      enterid = #{enterid,jdbcType=INTEGER},
+      entertime = #{entertime,jdbcType=TIMESTAMP},
+      checkerid = #{checkerid,jdbcType=INTEGER},
+      checkedtime = #{checkedtime,jdbcType=TIMESTAMP},
+      lawstatus = #{lawstatus,jdbcType=SMALLINT},
+      reviewerid = #{reviewerid,jdbcType=INTEGER},
+      reviewtime = #{reviewtime,jdbcType=TIMESTAMP},
+      keyterms = #{keyterms,jdbcType=LONGVARCHAR},
+      lawattributes = #{lawattributes,jdbcType=LONGVARCHAR},
+      upperregulations = #{upperregulations,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.justcs.entity.Securitylaw">
+    update securitylaw
+    set lawname = #{lawname,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      firstreldepid = #{firstreldepid,jdbcType=INTEGER},
+      copubdepid = #{copubdepid,jdbcType=INTEGER},
+      enterid = #{enterid,jdbcType=INTEGER},
+      entertime = #{entertime,jdbcType=TIMESTAMP},
+      checkerid = #{checkerid,jdbcType=INTEGER},
+      checkedtime = #{checkedtime,jdbcType=TIMESTAMP},
+      lawstatus = #{lawstatus,jdbcType=SMALLINT},
+      reviewerid = #{reviewerid,jdbcType=INTEGER},
+      reviewtime = #{reviewtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+    <!-- 查看是否已经存在法律标准条文 -->
+    <select id="selectContainsLaw" resultMap="BaseResultMap" parameterType="com.justcs.entity.Securitylaw">
+        select
+        <include refid="Base_Column_List"/>
+        from securitylaw
+        where lawname=#{lawname}
+        and version=#{version}
+        and lawstatus!='-1'
+    </select>
+
+
+    <!-- 查询需要验证的法律字段 -->
+    <select id="selectValidating" resultType="com.justcs.view.LawValidatingView">
+        select
+        s.id as lawid,
+        s.lawname as lawname,
+        s.version as version,
+        s.enterid as enterid,
+        st1.stuname as entername,
+        (case when s.entertime is not null then date_format(s.entertime,'%Y-%m-%d %H:%i:%S')
+        else "暂无" end) as entertime,
+        s.checkerid as checkerid,
+        st2.stuname as checkername,
+        (case when s.checkedtime is not null then date_format(s.checkedtime,'%Y-%m-%d %H:%i:%S')
+        else "暂无" end) as checkedtime,
+        (case when s.lawstatus='2' then '待审核'
+              when s.lawstatus='3' then '审核通过'
+              when s.lawstatus='-1' then '审核不通过'
+              else "未知" end) as lawstatus,
+        iw.grade as entergrade,
+        cw.grade as checkergrade
+        from securitylaw s
+        left join student st1 on(s.enterid=st1.accountid)
+        left join student st2 on(s.checkerid=st2.accountid)
+        LEFT JOIN workloadrecord iw ON ( s.enterid = iw.accountid and s.id = iw.lawid)
+        LEFT JOIN workloadrecord cw ON ( s.checkerid = cw.accountid and s.id = cw.lawid)
+        where 1=1
+        <!-- 法律条文的状态 -->
+        <if test="lawstatus!=null and lawstatus!=''">
+           and  s.lawstatus = #{lawstatus}
+        </if>
+        <!-- 按照关键字查询 -->
+        <if test="search!=null and search!=''">
+            and s.lawname like CONCAT(CONCAT('%', #{search}), '%')
+        </if>
+        <!-- 开始时间和结束时间 -->
+        <!-- 1.从开始时间往后 -->
+        <if test="starttime!=null and starttime!='' and (endtime==null or endtime=='')">
+            and s.checkedtime &gt;= concat(#{starttime}, ' 00:00:00')
+        </if>
+        <!-- 2.从结束时间往前 -->
+        <if test="starttime==null and starttime=='' and (endtime!=null or endtime!='')">
+            and s.checkedtime &lt;= concat(#{endtime}, ' 23:59:59')
+        </if>
+        <!-- 3.从开始时间到结束时间 -->
+        <if test="starttime!=null and starttime!='' and endtime !=null and endtime!=''">
+            and s.checkedtime between concat(#{starttime},' 00:00:00')
+            and
+            concat(#{endtime},' 23:59:59')
+        </if>
+        <!-- 按照某个字段排序 -->
+        <if test="sortby!=null and sortby!='' and order!=null and order!=''">
+            order by ${sortby} ${order}
+        </if>
+    </select>
+
+
+    <!-- 检索 -->
+    <select id="selectValidated" resultType="com.justcs.view.LawValidatingView">
+        select
+        s.id as lawid,
+        s.lawname as lawname,
+        s.version as version,
+        s.enterid as enterid,
+        s.lawattributes as lawattributes,
+        st1.stuname as entername,
+        (case when s.entertime is not null then date_format(s.entertime,'%Y-%m-%d %H:%i:%S')
+        else "暂无" end) as entertime,
+        s.checkerid as checkerid,
+        st2.stuname as checkername,
+        (case when s.checkedtime is not null then date_format(s.checkedtime,'%Y-%m-%d %H:%i:%S')
+        else "暂无" end) as checkedtime,
+        (case when s.lawstatus='2' then '待审核'
+        when s.lawstatus='3' then '审核通过'
+        when s.lawstatus='-1' then '审核不通过'
+        else "未知" end) as lawstatus,
+        iw.grade as entergrade,
+        cw.grade as checkergrade
+        from securitylaw s
+        left join student st1 on(s.enterid=st1.accountid)
+        left join student st2 on(s.checkerid=st2.accountid)
+        LEFT JOIN workloadrecord iw ON ( s.enterid = iw.accountid and s.id = iw.lawid)
+        LEFT JOIN workloadrecord cw ON ( s.checkerid = cw.accountid and s.id = cw.lawid)
+        where 1=1
+        and  s.lawstatus = '3'
+
+        <!-- 属性 -->
+        <if test="attribute!=null and attribute!=''">
+            and s.lawattributes like CONCAT(CONCAT('%', #{attribute}), '%')
+        </if>
+
+        <!-- 录入人 -->
+        <if test="inputer!=null and inputer!=''">
+            and st1.stuname like CONCAT(CONCAT('%', #{inputer}), '%')
+        </if>
+
+        <!-- 校验人 -->
+        <if test="checker!=null and checker!=''">
+            and st2.stuname like CONCAT(CONCAT('%', #{checker}), '%')
+        </if>
+
+        <!-- 名称 -->
+        <if test="lawname!=null and lawname!=''">
+            and s.lawname like CONCAT(CONCAT('%', #{lawname}), '%')
+        </if>
+
+        <!-- 按照某个字段排序 -->
+        <if test="sortby!=null and sortby!='' and order!=null and order!=''">
+            order by ${sortby} ${order}
+        </if>
+    </select>
+</mapper>

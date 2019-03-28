@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.justcs.dao.WorkloadrecordMapper">
+    <resultMap id="BaseResultMap" type="com.justcs.entity.Workloadrecord">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="type" jdbcType="SMALLINT" javaType="java.lang.Short"/>
+            <arg column="accountid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="lawid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="grade" jdbcType="REAL" javaType="java.lang.Float"/>
+            <arg column="optime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="gradetime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, type, accountid, lawid, grade, optime, gradetime
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from workloadrecord
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from workloadrecord
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.justcs.entity.Workloadrecord" useGeneratedKeys="true" keyProperty="id">
+    insert into workloadrecord (id, type, accountid, 
+      lawid, grade, optime, 
+      gradetime)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=SMALLINT}, #{accountid,jdbcType=INTEGER}, 
+      #{lawid,jdbcType=INTEGER}, #{grade,jdbcType=REAL}, #{optime,jdbcType=TIMESTAMP}, 
+      #{gradetime,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="com.justcs.entity.Workloadrecord" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into workloadrecord
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="accountid != null">
+                accountid,
+            </if>
+            <if test="lawid != null">
+                lawid,
+            </if>
+            <if test="grade != null">
+                grade,
+            </if>
+            <if test="optime != null">
+                optime,
+            </if>
+            <if test="gradetime != null">
+                gradetime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="accountid != null">
+                #{accountid,jdbcType=INTEGER},
+            </if>
+            <if test="lawid != null">
+                #{lawid,jdbcType=INTEGER},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=REAL},
+            </if>
+            <if test="optime != null">
+                #{optime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gradetime != null">
+                #{gradetime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.justcs.entity.Workloadrecord">
+        update workloadrecord
+        <set>
+            <if test="type != null">
+                type = #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="accountid != null">
+                accountid = #{accountid,jdbcType=INTEGER},
+            </if>
+            <if test="lawid != null">
+                lawid = #{lawid,jdbcType=INTEGER},
+            </if>
+            <if test="grade != null">
+                grade = #{grade,jdbcType=REAL},
+            </if>
+            <if test="optime != null">
+                optime = #{optime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gradetime != null">
+                gradetime = #{gradetime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.justcs.entity.Workloadrecord">
+    update workloadrecord
+    set type = #{type,jdbcType=SMALLINT},
+      accountid = #{accountid,jdbcType=INTEGER},
+      lawid = #{lawid,jdbcType=INTEGER},
+      grade = #{grade,jdbcType=REAL},
+      optime = #{optime,jdbcType=TIMESTAMP},
+      gradetime = #{gradetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <!-- 按照条件查询 -->
+    <select id="selectWorkedLaws" resultType="com.justcs.view.WorkedLawView">
+        select
+        w.id as workid,
+        s.id as lawid,
+        date_format(w.optime, '%Y-%m-%d %H:%i:%S') as optime,
+        (case when w.type='1' then '录入操作'
+        when w.type='2' then '校验操作' end) as optype,
+        s.lawname as lawname,
+        s.version as version,
+        (case when w.grade is not null then grade
+        else "暂无" end) as grade,
+        (case when w.gradetime is not null then date_format(w.gradetime,'%Y-%m-%d %H:%i:%S')
+        else "暂无" end) as gradetime,
+        (case when s.lawstatus='99' then '正在校验'
+        when s.lawstatus='1' then '准备校验'
+        when s.lawstatus='2' then '校验完成'
+        when s.lawstatus='3' then '审核通过'
+        when s.lawstatus='-1' then '审核不通过' end) as status
+        from workloadrecord w
+        left join securitylaw s on(w.lawid=s.id)
+        where s.lawstatus in (1, 99, 2, 3, -1)
+        <!-- 账户的编号 -->
+        <if test="accountid!=null and accountid!=''">
+            and w.accountid=#{accountid}
+        </if>
+        <!-- 按照关键字查询 -->
+        <if test="search!=null and search!=''">
+            and s.lawname like CONCAT(CONCAT('%', #{search}), '%')
+        </if>
+
+        <!-- 开始时间和结束时间 -->
+        <!-- 1.从开始时间往后 -->
+        <if test="starttime!=null and starttime!='' and (endtime==null or endtime=='')">
+            and w.optime &gt;= concat(#{starttime}, ' 00:00:00')
+        </if>
+        <!-- 2.从结束时间往前 -->
+        <if test="starttime==null and starttime=='' and (endtime!=null or endtime!='')">
+            and w.optime &lt;= concat(#{endtime}, ' 23:59:59')
+        </if>
+        <!-- 3.从开始时间到结束时间 -->
+        <if test="starttime!=null and starttime!='' and endtime !=null and endtime!=''">
+            and w.optime between concat(#{starttime},' 00:00:00')
+            and
+            concat(#{endtime},' 23:59:59')
+        </if>
+
+        <!-- 按照某个字段排序 -->
+        <if test="sortby!=null and sortby!='' and order!=null and order!=''">
+            order by ${sortby} ${order}
+        </if>
+    </select>
+
+
+    <select id="selectByLawidAndAcId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from workloadrecord
+        where accountid=#{accountid} and lawid=#{lawid}
+    </select>
+</mapper>
